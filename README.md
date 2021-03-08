@@ -60,7 +60,7 @@ http://localhost:9090/api/playground
 
 > You can access the playground ui from the following url.
 
-http://localhost:9090/voyager
+http://localhost:9090/api/voyager
 
 <img src="https://github.com/susimsek/spring-boot-graphql-spqr-example/blob/main/images/voyager.png" alt="Spring Boot Voyager" width="100%" height="100%"/>
 
