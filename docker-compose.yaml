@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+  app:
+    image: app:${SERVICE_IMAGE_TAG}
+    container_name: app
+    restart: ${RESTART_POLICY}
+    environment:
+      - TZ
+      - SERVER_PORT
+      - API_BASE_PATH
+      - ELASTICSEARCH_HOST
+      - ELASTICSEARCH_PORT
+      - DEFAULT_PAGE_SIZE
+      - MAX_PAGE_SIZE
+      - OPENAPI_TITLE
+      - OPENAPI_DESCRIPTION
+      - OPENAPI_VERSION
+      - OPENAPI_TERMS-OF-SERVICE-URL
+      - OPENAPI_LICENCE
+      - OPENAPI_LICENCE_URL
+      - PROBLEM_FIELD_ERRORS_KEY
+      - PROBLEM_MESSAGE_KEY
+      - PROBLEM_PATH_KEY
+      - PROBLEM_VIOLATIONS_KEY
+      - PROBLEM_ERROR_VALIDATION
+      - PROBLEM_BASE_URL
+      - PROBLEM_UNEXPECTED_ERROR_PACKAGE_LIST
+      - LOG_DATEFORMAT_PATTERN
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_IMAGE_TAG}
+    container_name: elasticsearch
+    restart: ${RESTART_POLICY}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    environment:
+      - discovery.type
+      - ES_JAVA_OPTS
+    volumes:
+      - ./data/elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${ELASTIC_IMAGE_TAG}
+    container_name: kibana
+    restart: ${RESTART_POLICY}
+    environment:
+      - ELASTICSEARCH_URL
+    ports:
+      - 5601:5601
