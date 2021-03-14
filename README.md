@@ -26,7 +26,7 @@ docker-compose up -d
 
 <img src="https://github.com/susimsek/spring-boot-graphql-spqr-example/blob/main/images/vagrant-installation.png" alt="Spring Boot Vagrant Installation" width="100%" height="100%"/> 
 
-## Prerequisites
+### Prerequisites
 
 * Vagrant 2.2+
 * Virtualbox or Hyperv
