@@ -67,19 +67,19 @@ vagrant ssh
 docker-compose up -d
 ```
 
-> You can access the SpringDoc Openapi from the following url.
+### You can access the SpringDoc Openapi from the following url.
 
 http://localhost:9090/api
 
-> You can access the playground from the following url.
+### You can access the playground from the following url.
 
 http://localhost:9090/api/playground
 
-> You can access the voyager from the following url.
+### You can access the voyager from the following url.
 
 http://localhost:9090/api/voyager
 
-> You can access the Kibana from the following url.
+### You can access the Kibana from the following url.
 
 http://localhost:5601
 
